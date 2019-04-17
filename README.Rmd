@@ -27,17 +27,13 @@ library(tea)
 
 ## Usage
 
-```{r example}
-library(tea)
-head(tea)
-```
-
-** Top tea exporting countries **
+**Top tea exporting countries**
 
 ```{r}
 
 library(tea)
 library(gganimate)
+library(ggthemes)
 library(tidyverse)
 
 ## Processing data
@@ -48,18 +44,19 @@ tea_export <- tea %>%
   ungroup() %>%
   filter(rank <= 20)
 
+
 ## Visualization
 tea_plot <- ggplot(tea_export, aes(rank, group = Exporters, 
-                     fill = as.factor(Exporters), color = as.factor(Exporters))) +
-  geom_tile(aes(y = Value,
+                     fill = Exporters, color = Exporters)) +
+  geom_tile(aes(y = Value/2,
                 height = Value,
-                width = 0.9), alpha = 0.8, color = NA) +
+                width = 0.9)) +
   geom_text(aes(y = 0, label = paste(Exporters, " ")), vjust = 0.2, hjust = 1) +
   coord_flip(clip = "off", expand = FALSE) +
-  scale_y_continuous(labels = scales::comma) +
+  scale_y_continuous(labels = scales::dollar) +
   scale_x_reverse() +
   guides(color = FALSE, fill = FALSE) +
-  labs(title='{closest_state}', x = "", y = "Tea export value (US Dollar in thousand)") +
+  labs(title='{closest_state}', x = "", y = "Tea exported value (US Dollar in thousand)",caption = "Sources: ITC calculations based on UN COMTRADE and ITC statistics. ")+
   theme(plot.title = element_text(hjust = 0, size = 22),
         axis.ticks.y = element_blank(),  
         axis.text.y  = element_blank(),  
@@ -72,3 +69,16 @@ animate(tea_plot, fps = 25, duration = 20, width = 800, height = 600)
 
 
 ```
+
+
+```r
+# save as a gif
+image <- animate(tea_plot)
+library(magick)
+image_write(image, 'teagif.gif')
+
+```
+
+## Acknowledgement
+
+https://stackoverflow.com/questions/53162821/animated-sorted-bar-chart-with-bars-overtaking-each-other
