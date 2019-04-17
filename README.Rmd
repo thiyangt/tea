@@ -1,0 +1,74 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tea
+
+R package for tea exported data.
+
+## Installation
+
+``` r
+#install.packages("devtools")
+devtools::install_github("thiyangt/tea")
+library(tea)
+```
+
+## Usage
+
+```{r example}
+library(tea)
+head(tea)
+```
+
+** Top tea exporting countries **
+
+```{r}
+
+library(tea)
+library(gganimate)
+library(tidyverse)
+
+## Processing data
+tea_export <- tea %>%
+  gather(Year, Value, "2001":"2018", factor_key=TRUE) %>% 
+  group_by(Year) %>%
+  mutate(rank = min_rank(-Value) * 1) %>%
+  ungroup() %>%
+  filter(rank <= 20)
+
+## Visualization
+tea_plot <- ggplot(tea_export, aes(rank, group = Exporters, 
+                     fill = as.factor(Exporters), color = as.factor(Exporters))) +
+  geom_tile(aes(y = Value,
+                height = Value,
+                width = 0.9), alpha = 0.8, color = NA) +
+  geom_text(aes(y = 0, label = paste(Exporters, " ")), vjust = 0.2, hjust = 1) +
+  coord_flip(clip = "off", expand = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_reverse() +
+  guides(color = FALSE, fill = FALSE) +
+  labs(title='{closest_state}', x = "", y = "Tea export value (US Dollar in thousand)") +
+  theme(plot.title = element_text(hjust = 0, size = 22),
+        axis.ticks.y = element_blank(),  
+        axis.text.y  = element_blank(),  
+        plot.margin = margin(1,1,1,4, "cm")) +
+  transition_states(Year, transition_length = 4, state_length = 1) +
+  ease_aes('cubic-in-out')
+
+animate(tea_plot, fps = 25, duration = 20, width = 800, height = 600)
+
+
+
+```
