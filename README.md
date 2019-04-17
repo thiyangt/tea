@@ -14,10 +14,8 @@ devtools::install_github("thiyangt/tea")
 library(tea)
 ```
 
-Usage
------
-
-**Top tea exporting countries**
+Top tea exporting countries
+---------------------------
 
 ``` r
 
@@ -60,7 +58,6 @@ tea_plot <- ggplot(tea_export, aes(rank, group = Exporters,
         axis.ticks.y = element_blank(),  
         axis.text.y  = element_blank(),  
         plot.margin = margin(1,1,1,4, "cm")) +
-  geom_text(aes(x=7, y=82, label=Year), cex=20, color="grey") +
   transition_states(Year, transition_length = 4, state_length = 1) +
   ease_aes('cubic-in-out')
 

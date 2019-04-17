@@ -25,9 +25,7 @@ devtools::install_github("thiyangt/tea")
 library(tea)
 ```
 
-## Usage
-
-**Top tea exporting countries**
+## Top tea exporting countries
 
 ```{r}
 
