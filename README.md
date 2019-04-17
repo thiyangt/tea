@@ -1,5 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Travis-CI Build Status](https://travis-ci.org/thiyangt/colmozzie.svg?branch=master)](https://travis-ci.org/thiyangt/tea)
+
 tea
 ===
 
@@ -53,7 +55,7 @@ tea_plot <- ggplot(tea_export, aes(rank, group = Exporters,
   scale_y_continuous(labels = scales::dollar) +
   scale_x_reverse() +
   guides(color = FALSE, fill = FALSE) +
-  labs(title='{closest_state}', x = "", y = "Tea exported value (US Dollar in thousand)",caption = "Sources: ITC calculations based on UN COMTRADE and ITC statistics. ")+
+  labs(title='{closest_state}', x = "", y = "Tea exported value (US Dollar in thousand)",caption = "Source: Trade Map, International Trade Centre, https://marketanalysis.intracen.org.")+
   theme(plot.title = element_text(hjust = 0, size = 22),
         axis.ticks.y = element_blank(),  
         axis.text.y  = element_blank(),  
@@ -76,4 +78,6 @@ image_write(image, 'teagif.gif')
 Acknowledgement
 ---------------
 
-<https://stackoverflow.com/questions/53162821/animated-sorted-bar-chart-with-bars-overtaking-each-other>
+-   Trade Map (or Market Access Map, Investment Map and Standards Map, respectively), International Trade Centre, www.intracen.org/marketanalysis".
+
+-   <https://stackoverflow.com/questions/53162821/animated-sorted-bar-chart-with-bars-overtaking-each-other>
