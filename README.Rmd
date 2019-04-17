@@ -13,9 +13,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/thiyangt/colmozzie.svg?branch=master)](https://travis-ci.org/thiyangt/tea)
 
 # tea
+
+[![Travis-CI Build Status](https://travis-ci.org/thiyangt/colmozzie.svg?branch=master)](https://travis-ci.org/thiyangt/tea)
 
 R package for tea exported data.
 
@@ -67,20 +68,12 @@ tea_plot <- ggplot(tea_export, aes(rank, group = Exporters,
 animate(tea_plot, fps = 25, duration = 20, width = 800, height = 600)
 
 
-
 ```
 
 
-```r
-# save as a gif
-image <- animate(tea_plot)
-library(magick)
-image_write(image, 'teagif.gif')
-
-```
 
 ## Acknowledgement
 
-- Trade Map (or Market Access Map, Investment Map and Standards Map, respectively), International Trade Centre, www.intracen.org/marketanalysis".
+- Trade Map (or Market Access Map, Investment Map and Standards Map, respectively), International Trade Centre, www.intracen.org/marketanalysis.
 
 - https://stackoverflow.com/questions/53162821/animated-sorted-bar-chart-with-bars-overtaking-each-other

@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build Status](https://travis-ci.org/thiyangt/colmozzie.svg?branch=master)](https://travis-ci.org/thiyangt/tea)
-
 tea
 ===
+
+[![Travis-CI Build Status](https://travis-ci.org/thiyangt/colmozzie.svg?branch=master)](https://travis-ci.org/thiyangt/tea)
 
 R package for tea exported data.
 
@@ -68,16 +68,9 @@ animate(tea_plot, fps = 25, duration = 20, width = 800, height = 600)
 
 <img src="man/figures/README-unnamed-chunk-1-1.gif" width="100%" />
 
-``` r
-# save as a gif
-image <- animate(tea_plot)
-library(magick)
-image_write(image, 'teagif.gif')
-```
-
 Acknowledgement
 ---------------
 
--   Trade Map (or Market Access Map, Investment Map and Standards Map, respectively), International Trade Centre, www.intracen.org/marketanalysis".
+-   Trade Map (or Market Access Map, Investment Map and Standards Map, respectively), International Trade Centre, www.intracen.org/marketanalysis.
 
 -   <https://stackoverflow.com/questions/53162821/animated-sorted-bar-chart-with-bars-overtaking-each-other>
