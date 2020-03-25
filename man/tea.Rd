@@ -4,7 +4,8 @@
 \name{tea}
 \alias{tea}
 \title{Top Tea Exporting Countries}
-\format{A data frame with 206 rows and 19 variables
+\format{
+A data frame with 206 rows and 19 variables
 \describe{
 \item{Exporters}{Name of the country}
 \item{2001}{2001 export value in US Dollar thousand}
@@ -25,7 +26,8 @@
 \item{2016}{2001 export value in US Dollar thousand}
 \item{2017}{2001 export value in US Dollar thousand}
 \item{2018}{2001 export value in US Dollar thousand}
-}}
+}
+}
 \source{
 ITC calculations based on UN COMTRADE and ITC statistics.
 }

@@ -1,7 +1,7 @@
-Package: tea
+Package: teaexporters
 Type: Package
 Title: Top Tea Exporting Countries
-Version: 1.0.0
+Version: 1.1.0
 Author: Thiyanga Talagala
 Maintainer: Thiyanga Talagala <ttalagala@sjp.ac.lk>
 Description: The major tea exporting countries worldwide from 2001 to 2018. Tea exported value is given in US Dollar thousand.
@@ -9,4 +9,4 @@ Depends: R (>= 2.10)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
